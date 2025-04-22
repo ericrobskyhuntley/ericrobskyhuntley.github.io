@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "build-bulma": "sass --load-path=node_modules src/styles/styles.scss src/styles/styles.css",
-    "dev": "npm run build-bulma & astro dev",
-    "build": "npm run build-bulma & astro build",
+    "dev": "npm run build-bulma && astro dev",
+    "build": "npm run build-bulma && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
