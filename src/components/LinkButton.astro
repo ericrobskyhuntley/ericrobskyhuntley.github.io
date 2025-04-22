@@ -1,15 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components'
-interface Props {
-  link: string;
-  desc?: string;
-  icon?: string;
-}
-const {link, desc = link, icon = "mdi:email" } = Astro.props;
+const { link } = Astro.props;
 ---
-<a href={link} class="button is-family-monospace is-link is-light">
+<a href={link.link} class="button is-family-monospace is-link is-light">
     <span class="icon is-small">
-        <Icon name={icon}/>
+        <Icon name={link.icon}/>
     </span>
-    <span>{desc}</span>
+    <span>{link.desc}</span>
 </a>

@@ -1,13 +1,16 @@
 ---
 import LinkButton from "../components/LinkButton.astro";
-const { desc, title, email, url, institution, links } = Astro.props;
+import { render } from "astro:content";
+const { role } = Astro.props;
+const { Content } = await render(role)
 ---
 <div class="block">
-    <div class="block">{ desc }</div>
+    <div class="subtitle">{role.data.title}</div>
+    <div class="block"><Content/></div>
     <div class="buttons">
         {
-            links.map(({ desc, link, icon}) => {
-                return <LinkButton {desc} {link} {icon} />;
+            role.data.links.map((link) => {
+                return <LinkButton {link} />;
             })
         }
 </div>

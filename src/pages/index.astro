@@ -1,10 +1,12 @@
 ---
 import '../styles/styles.css'
+import { getCollection } from "astro:content";
+import { Image } from 'astro:assets';
+
 import Name from "../components/Name.astro";
 import Description from "../components/Description.astro";
 import Role from "../components/Role.astro";
 import LinkButton from "../components/LinkButton.astro";
-import { Image } from 'astro:assets';
 import headshot from '../assets/head.jpg';
 
 const links = [
@@ -24,66 +26,8 @@ const links = [
 				icon: "academicons:orcid"
 			}
 		]
-const roles = [
-	{
-		desc: "I teach classes on GIS, data science, and geocomputation at MIT in Cambridge, where I am a Lecturer in Urban Science and Planning in the Department of Urban Studies and Planning. I also lead the Spatial Analysis and Action Research Group.",
-		url: new URL("https://dusp.mit.edu/people/eric-robsky-huntley/"),
-		links: [
-			{
-				desc: "mit-spatial-action",
-				link: new URL("https://github.com/mit-spatial-action/"),
-				icon: "fa6-brands:github"
-			},
-			{
-				desc: "ehuntley@mit.edu",
-				link: new URL("mailto:ehuntley@mit.edu"),
-				icon: "mdi:email"
-			},
-			{
-				desc: "SAARG",
-				link: new URL("https://mit-spatial-action.github.io/"),
-				icon: "mdi:web"
-			},
-			{
-				desc: "DUSP Profile",
-				link: new URL("https://dusp.mit.edu/"),
-				icon: "mdi:web"
-			},
-		]
-	},
-	{
-		desc: "I consult for mission-driven planners, solar companies, legal aid attorneys, map librarians, and more as OGRAPHIES Research & Design. ",
-		url: new URL("https://ographiesresearch.github.io/about/"),
-		links: [
-			{
-				desc: "ographiesresearch",
-				link: new URL("https://github.com/ographiesresearch/"),
-				icon: "fa6-brands:github"
-			},
-			{
-				desc: "eric@ographiesresearch.com",
-				link: new URL("mailto:eric@ographiesresearch.com"),
-				icon: "mdi:email"
-			},
-			{
-				desc: "OGRAPHIES Research & Design",
-				link: new URL("https://mit-spatial-action.github.io/"),
-				icon: "mdi:web"
-			}
-		]
-	},
-	{
-		desc: "I fight for academic freedom as a member of the Executive Committee of the MIT Chapter of the American Association of University Professors.",
-		url: new URL("https://aaup.mit.edu/leadership/"),
-		links: [
-			{
-				desc: "AAUP-MIT",
-				link: new URL("https://aaup.mit.edu"),
-				icon: "mdi:web"
-			}
-		]
-	}
-]
+
+const roles = await getCollection("roles");
 ---
 
 <!DOCTYPE html>
@@ -106,8 +50,8 @@ const roles = [
 			<Description desc="I'm a geographer, spatial data scientist, designer, and accidental software developer based in Somerville, Massachusetts." />
 			<div class="buttons">
 			{
-				links.map(({ desc, link, icon }) => {
-				  return <LinkButton {desc} {link} {icon} />;
+				links.map((link) => {
+				  return <LinkButton {link} />;
 				})
 			}
 			</div>
@@ -116,8 +60,8 @@ const roles = [
 				<div class="card-content">
 					<Name name="Current Work" />
 					{
-						roles.map(({ title, desc, email, url, links}) => {
-							return <Role {title} {email} {desc} {url} {links} />;
+						roles.map((role) => {
+							return <Role {role} />;
 						})
 					}
 				</div>
