@@ -1,24 +1,14 @@
 ---
-import Link from "../components/Link.astro";
-const { description, title, email, url, institution, links } = Astro.props;
+import LinkButton from "../components/LinkButton.astro";
+const { desc, title, email, url, institution, links } = Astro.props;
 ---
-<div class="card is-responsive is-link">
-    <div class="card-content">
-        <div class="block">{ description }</div>
-        <div class="buttons">
-            {
-                links.map(({ desc, link, icon}) => {
-                  return <Link {desc} {link} {icon} />;
-                })
-            }
-            <!-- <li class="has-text-weight-bold">{title}</li>
-            <li>{institution.name}</li>
-            {institution.in ?
-                <li>{institution.in.name}</li>
-                <li>{institution.in.place}</li> :
-                <li>{institution.place}</li>
-            } -->
-        </div>
-    </div>
-    
+<div class="block">
+    <div class="block">{ desc }</div>
+    <div class="buttons">
+        {
+            links.map(({ desc, link, icon}) => {
+                return <LinkButton {desc} {link} {icon} />;
+            })
+        }
+</div>
 </div>

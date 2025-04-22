@@ -3,8 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "build-bulma": "sass --load-path=node_modules ./src/styles/styles.scss ./src/styles/styles.css",
+    "dev": "npm run build-bulma & astro dev",
+    "build": "npm run build-bulma & astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -14,7 +15,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "astro": "^5.7.4",
     "astro-icon": "^1.1.5",
-    "bulma": "^1.0.4"
+    "bulma": "^1.0.4",
+    "sass": "^1.87.0"
   },
   "devDependencies": {
     "@iconify-json/academicons": "^1.2.2",
