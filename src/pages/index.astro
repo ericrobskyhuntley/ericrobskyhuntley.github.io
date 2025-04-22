@@ -1,0 +1,139 @@
+---
+import 'bulma/css/bulma.css'
+import Name from "../components/Name.astro";
+import Description from "../components/Description.astro";
+import Role from "../components/Role.astro";
+import Social from "../components/Social.astro";
+import Contact from "../components/Contact.astro";
+import { Image } from 'astro:assets';
+import headshot from '../assets/head.jpg';
+
+const links: Link[] = [
+  {
+    desc: "Example Project", // The text that will be rendered
+    link: "example.com", // The link
+    icon: "fa-solid fa-home", // An icon from Font Awesome: https://fontawesome.com/search?o=r&m=free
+  },
+  {
+    desc: "Cool Project",
+    link: "example.com",
+    icon: "fa-solid fa-store",
+  },
+];
+const contacts: Contact[] = [
+  {
+    address: "ehuntley@mit.edu"
+  },
+  {
+    address: "eric@ographiesresearch.com"
+  },
+  {
+    address: "ericrobskyhuntley@proton.me"
+  },
+];
+const mit: Institution = {
+	name: "Massachusetts Institute of Technology",
+	short: "MIT",
+	url: new URL("https://mit.edu/"),
+	place: "Cambridge, MA"
+}
+const dusp: Institution = {
+	name: "Department of Urban Studies and Planning",
+	short: "DUSP",
+	url: new URL("https://dusp.mit.edu/"),
+	in: mit,
+	place: "Cambridge, MA"
+}
+const aaup: Institution = {
+	name: "MIT Chapter of the American Association of University Professors",
+	short: "AAUP-MIT",
+	url: new URL("https://aaup.mit.edu/"),
+	in: mit,
+	place: "Cambridge, MA"
+}
+const saarg: Institution = {
+	name: "Spatial Analysis and Action Research Group",
+	short: "SAARG",
+	url: new URL("https://mit-spatial-action.github.io/"),
+	in: mit,
+	place: "Cambridge, MA"
+}
+const ographies: Institution = {
+	name: "OGRAPHIES Research & Design",
+	short: "OGRAPHIES",
+	url: new URL("https://ographiesresearch.com/"),
+	place: "Cambridge, MA"
+}
+const roles = [
+	{
+		description: "I teach classes on GIS, data science, and geocomputation at MIT in Cambridge, where I am a Lecturer in Urban Science and Planning in the Department of Urban Studies and Planning. I also lead the Spatial Analysis and Action Research Group.",
+		url: new URL("https://dusp.mit.edu/people/eric-robsky-huntley/"),
+		links: [
+			{
+				desc: "Cool Project",
+				link: "example.com",
+				icon: "fa-solid fa-store",
+			},
+			{
+				desc: "Cool Project",
+				link: "example.com",
+				icon: "fa-solid fa-store",
+			}
+		],
+		email: "ehuntley@mit.edu"
+	},
+	{
+		title: "Founder & Principal",
+		description: "I consult for mission-driven planners, solar companies, legal aid attorneys, map librarians, and more as OGRAPHIES Research & Design. ",
+		url: new URL("https://ographiesresearch.github.io/about/"),
+		institution: ographies,
+		email: "eric@ographiesresearch.com"
+	},
+	{
+		title: "Executive Committee, Secretary",
+		description: "I fight for academic freedom as a member of the Executive Committee of the MIT Chapter of the American Association of University Professors.",
+		url: new URL("https://aaup.mit.edu/leadership/"),
+		institution: aaup,
+		email: "ehuntley@mit.edu"
+	}
+]
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-max-tablet">
+		<div class="box">
+			<div class="has-text-centered block">
+				<figure class="image is-128x128  is-inline-block">
+					<Image alt="Headshot of { name }." class="is-rounded" src={headshot} />
+				</figure>
+			</div>
+			<Name name="Eric Robsky Huntley, PhD, GISP" />
+			<Description desc="I'm a geographer, spatial data scientist, designer, and accidental software developer based in Somerville, Massachusetts." />
+			<div class="buttons">
+			{
+				contacts.map(({ address }) => {
+				  return <Contact {address} />;
+				})
+			}
+			</div>
+		</div>
+		<Description desc="What I'm Up To" />
+		<div class="buttons">
+		{
+			roles.map(({ title, description, email, url, institution}) => {
+				return <Role {title} {email} {description} {url} {institution} {links} />;
+			})
+		}
+		</div>
+    </div>
+  </section>
+  </body>
+</html>

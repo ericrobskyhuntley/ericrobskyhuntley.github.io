@@ -1,0 +1,15 @@
+---
+import { Icon } from 'astro-icon/components'
+interface Props {
+address: string;
+  text: string;
+  icon: string;
+}
+const {address, text = address, icon = "mdi:email" } = Astro.props;
+---
+<a href={`mailto:${address}`} class="button is-family-monospace is-link is-outlined">
+    <span class="icon is-small">
+        <Icon name={icon}/>
+    </span>
+    <span>{text}</span>
+</a>
