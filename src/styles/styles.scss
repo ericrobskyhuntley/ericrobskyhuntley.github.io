@@ -1,11 +1,13 @@
 // Set your brand colors
-$red: #990000;
+$red: #990009;
 
 // Path to Bulma's sass folder
 @use "bulma/sass" with (
-  $family-primary: '"Nunito", sans-serif',
-  $link: $red
+  $family-primary: '"Inter", sans-serif',
+  $link: $red,
+  $box-radius: 0,
+  $box-shadow: 0
 );
 
 // Import the Google Font
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');

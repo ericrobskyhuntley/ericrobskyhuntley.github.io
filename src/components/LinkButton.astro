@@ -2,9 +2,34 @@
 import { Icon } from 'astro-icon/components'
 const { link } = Astro.props;
 ---
-<a href={link.link} class="button is-family-monospace is-link is-light">
+<a href={link.link} class="button is-family-monospace is-link is-outlined is-responsive">
     <span class="icon is-small">
         <Icon name={link.icon}/>
     </span>
     <span>{link.desc}</span>
 </a>
+
+<style>
+    .button {
+        border-radius: 0;
+        border-top-style: dashed;
+        border-left-style: dashed;
+        border-bottom-style: solid;
+        border-right-style: solid;
+    }
+    .button:hover {
+        border-style: solid;
+        background-color: var(--bulma-link-light);
+    }
+    @media (prefers-color-scheme: dark) {
+        .button {
+            background-color: var(--bulma-link-dark);
+            color:white;
+        }
+        .button:hover {
+            border-style: solid;
+            background-color: var(--bulma-link);
+        }
+    }
+
+</style>

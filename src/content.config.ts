@@ -4,7 +4,6 @@ import { glob } from 'astro/loaders';
 const roles = defineCollection({
   loader: glob({ pattern: "*.{md,mdx}", base: "./src/roles" }),
   schema: z.object({
-    title: z.string(),
     url: z.string(),
     links: z.array(
         z.object({
@@ -12,7 +11,8 @@ const roles = defineCollection({
             link: z.string(),
             icon: z.string()
         })
-    )
+    ),
+    order: z.number()
   })
 });
 

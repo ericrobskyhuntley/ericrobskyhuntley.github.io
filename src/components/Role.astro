@@ -1,11 +1,11 @@
 ---
 import LinkButton from "../components/LinkButton.astro";
+import Box from "../components/Box.astro";
 import { render } from "astro:content";
 const { role } = Astro.props;
 const { Content } = await render(role)
 ---
-<div class="block">
-    <div class="subtitle">{role.data.title}</div>
+<Box>
     <div class="block"><Content/></div>
     <div class="buttons">
         {
@@ -13,5 +13,5 @@ const { Content } = await render(role)
                 return <LinkButton {link} />;
             })
         }
-</div>
-</div>
+    </div>
+</Box>

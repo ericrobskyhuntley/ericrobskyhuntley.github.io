@@ -7,5 +7,13 @@ const { desc } = Astro.props;
 ---
 
 <p class="subtitle">
-   {desc}
+    {desc}
 </p>
+
+<style>
+  @media (prefers-color-scheme: dark) {
+    .subtitle {
+      color: white;
+    }
+  }
+</style>

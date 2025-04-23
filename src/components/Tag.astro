@@ -1,4 +1,15 @@
 ---
 ---
 
-<span class="tag is-link is-light"><slot/></span>
+<span class="has-text-weight-bold"><slot/></span>
+
+<style>
+    span {
+        text-decoration: underline var(--bulma-link) solid;
+        color: var(--bulma-link);
+    }
+    @media (prefers-color-scheme: dark) {
+        span {
+        }
+    }
+</style>
