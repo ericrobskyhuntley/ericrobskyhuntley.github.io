@@ -1,38 +1,22 @@
-# sv
+# ericrobskyhuntley.github.io
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Essentially a slightly-more-involved LinkTree alternative. [Built with Astro](https://astro.build/). Here's how you can make it your own, assuming you're using Github pages.
 
-## Creating a project
+## Blocks
 
-If you're seeing this, you've probably already done this step. Congrats!
+Stored as `.mdx` files within `src/blocks/`, these are the basic units. They contain simple front-matter and lists of links that are displayed alongside the block.
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Config
 
-# create a new project in my-app
-npx sv create my-app
+The remainder of site data is populated from `src/config.json`. This should be relatively self-explanatory. `"links"` provided here appear alongside the name at the top. `"avatar"` should refernece a file in the `src/assets/` folder. `"pages.user"` is your GitHub user or organization and `"pages.repo"` is the pages repostiory.
+
+## Astro Config
+
+Finally, you should modify your `astro.config.mjs` file as follows...
+
+```js
+export default defineConfig({
+  integrations: [icon(), mdx()],
+  site: '<YOUR GITHUG PAGES SITE>'
+});
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
