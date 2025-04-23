@@ -1,5 +1,10 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    link: Link;
+}
+
 const { link } = Astro.props;
 ---
 <a href={link.link} class="button is-family-monospace is-link is-outlined is-responsive">

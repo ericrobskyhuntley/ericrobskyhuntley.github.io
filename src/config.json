@@ -1,0 +1,26 @@
+{
+    "name": "Eric Robsky Huntley, PhD, GISP",
+    "desc": "I'm a geographer, spatial data scientist, designer, and accidental software developer based in Somerville, Massachusetts.",
+    "links": [
+        {
+            "desc": "ericrobskyhuntley",
+            "link": "https://github.com/ericrobskyhuntley",
+            "icon": "fa6-brands:github"
+        },
+        {
+            "desc": "ericrobskyhuntley@proton.me",
+            "link": "mailto:ericrobskyhuntley@proton.me",
+            "icon": "mdi:email"
+        },
+        {
+            "desc": "0000-0001-8497-0589",
+            "link": "https://orcid.org/0000-0001-8497-0589",
+            "icon": "academicons:orcid"
+        }
+    ],
+    "avatar": "avatar.jpg",
+    "pages": {
+        "user": "ericrobskyhuntley",
+        "repo": "ericrobskyhuntley.github.io"
+    }
+}

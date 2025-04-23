@@ -5,30 +5,16 @@ import { Image } from 'astro:assets';
 
 import Box from "../components/Box.astro";
 import Name from "../components/Name.astro";
+import Hr from "../components/Hr.astro";
 import Description from "../components/Description.astro";
 import Role from "../components/Role.astro";
 import LinkButton from "../components/LinkButton.astro";
 import GitHubCommit from "../components/GitHubCommit.astro";
 
-import headshot from '../assets/head.jpg';
+import _config from "../config.json";
+const config: Config = _config;
 
-const links = [
-			{
-				desc: "ericrobskyhuntley",
-				link: new URL("https://github.com/ericrobskyhuntley"),
-				icon: "fa6-brands:github"
-			},
-			{
-				desc: "ericrobskyhuntley@proton.me",
-				link: new URL("mailto:ericrobskyhuntley@proton.me"),
-				icon: "mdi:email"
-			},
-			{
-				desc: "0000-0001-8497-0589",
-				link: new URL("https://orcid.org/0000-0001-8497-0589"),
-				icon: "academicons:orcid"
-			}
-		]
+import headshot from "../assets/avatar.jpg";
 
 const roles = await getCollection("roles");
 
@@ -40,7 +26,7 @@ const roles_sort = roles.sort((a,b) => (a.data.order > b.data.order ? 1 : (b.dat
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eric Robsky Huntley, PhD, GISP</title>
+    <title>{config.name}</title>
   </head>
   <body>
   <section class="section">
@@ -51,17 +37,17 @@ const roles_sort = roles.sort((a,b) => (a.data.order > b.data.order ? 1 : (b.dat
 					<Image alt="Headshot of { name }." class="is-rounded" src={headshot} />
 				</figure>
 			</div>
-			<Name name="Eric Robsky Huntley, PhD, GISP" />
-			<Description desc="I'm a geographer, spatial data scientist, designer, and accidental software developer based in Somerville, Massachusetts." />
+			<Name name={config.name} />
+			<Description>
+				{config.desc}
+			</Description>
 			<div class="buttons">
 			{
-				links.map((link) => {
+				config.links.map((link) => {
 				  return <LinkButton {link} />;
 				})
 			}
 			</div>
-			<hr>
-			<GitHubCommit user="ericrobskyhuntley" repo="ericrobskyhuntley.github.io"/>
 		</Box>
 		{
 			roles_sort.map((role) => {
@@ -69,7 +55,11 @@ const roles_sort = roles.sort((a,b) => (a.data.order > b.data.order ? 1 : (b.dat
 			})
 		}
 		<Box>
-			Built using <a href="https://astro.build/">Astro</a>. Made available under an <a href="https://en.wikipedia.org/wiki/MIT_License">MIT license</a>. Source code available on <a href="https://github.com/ericrobskyhuntley/ericrobskyhuntley.github.io">GitHub</a>
+			Built using <a href="https://astro.build/">Astro</a>. 
+			Source code available on <a href=`https://github.com/${config.pages.user}/${config.pages.repo}`>GitHub</a> 
+			under an <a href="https://en.wikipedia.org/wiki/MIT_License">MIT license</a>.
+			<Hr/>
+			<GitHubCommit user=`${config.pages.user}` repo=`${config.pages.repo}`/>
 		</Box>
     </div>
   </section>

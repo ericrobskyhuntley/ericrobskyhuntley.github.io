@@ -2,6 +2,7 @@
 import LinkButton from "../components/LinkButton.astro";
 import Box from "../components/Box.astro";
 import { render } from "astro:content";
+
 const { role } = Astro.props;
 const { Content } = await render(role)
 ---
@@ -9,7 +10,7 @@ const { Content } = await render(role)
     <div class="block"><Content/></div>
     <div class="buttons">
         {
-            role.data.links.map((link) => {
+            role.data.links.map((link:Link) => {
                 return <LinkButton {link} />;
             })
         }

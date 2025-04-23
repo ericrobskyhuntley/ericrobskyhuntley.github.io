@@ -9,8 +9,6 @@ const { user, repo } = Astro.props;
 const commit = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=1`)
     .then((res) => res.json())
     .then((res) => res[0])
-
-console.log(commit);
 ---
 
 <div class="is-size-7">

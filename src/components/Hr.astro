@@ -1,0 +1,15 @@
+---
+interface Props {
+    color?: string;
+}
+
+const { color = "link" } = Astro.props;
+---
+
+<hr style=`border-top: 1px dashed var(--bulma-${color})`/>
+
+<style>
+    hr {
+        margin: 1em 0 1em 0;
+    }
+</style>

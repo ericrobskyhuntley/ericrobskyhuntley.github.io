@@ -1,13 +1,5 @@
----
-interface Props {
-  desc: string;
-}
-
-const { desc } = Astro.props;
----
-
 <p class="subtitle">
-    {desc}
+    <slot/>
 </p>
 
 <style>

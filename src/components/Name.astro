@@ -5,6 +5,15 @@ interface Props {
 
 const { name } = Astro.props;
 ---
-<h1 class="title is-spaced">
+<h1 class="title is-spaced has-text-link">
     {name}
 </h1>
+
+
+<style>
+@media (prefers-color-scheme: dark) {
+  h1 {
+      color:white !important;
+  }
+}
+</style>

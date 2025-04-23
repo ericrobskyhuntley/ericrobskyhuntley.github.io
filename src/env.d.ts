@@ -4,22 +4,19 @@ declare interface Link {
     icon: string;
   }
 
-declare interface Contact {
-    address: string;
-    text?: string;
-}
-
-interface Institution {
+declare interface Config {
   name: string;
-  short: string;
-  url: URL;
-  place: string;
-  in?: Institution[];
+  desc: string;
+  links: Link[];
+  pages: {
+    user: string;
+    repo: string;
+  }
 }
 
-interface Roles {
-  title: string;
+declare interface Role {
   url: URL;
-  institution: Institution;
+  links: Link[];
   email: string;
+  order: number;
 }[]
