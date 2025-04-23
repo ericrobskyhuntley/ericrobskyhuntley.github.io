@@ -7,7 +7,7 @@ import Box from "../components/Box.astro";
 import Name from "../components/Name.astro";
 import Hr from "../components/Hr.astro";
 import Description from "../components/Description.astro";
-import Role from "../components/Role.astro";
+import Block from "../components/Block.astro";
 import LinkButton from "../components/LinkButton.astro";
 import GitHubCommit from "../components/GitHubCommit.astro";
 
@@ -16,9 +16,9 @@ const config: Config = _config;
 
 import headshot from "../assets/avatar.jpg";
 
-const all_roles = await getCollection("roles");
+const all = await getCollection("blocks");
 
-const pub_roles = all_roles.sort((a,b) => a.data.order - b.data.order).filter((d) => d.data.published);
+const published = all.sort((a,b) => a.data.order - b.data.order).filter((d) => d.data.published);
 ---
 
 <!DOCTYPE html>
@@ -52,8 +52,8 @@ const pub_roles = all_roles.sort((a,b) => a.data.order - b.data.order).filter((d
 			<GitHubCommit user=`${config.pages.user}` repo=`${config.pages.repo}`/>
 		</Box>
 		{
-			pub_roles.map((role) => {
-				return <Role {role} />;
+			published.map((role) => {
+				return <Block {role} />;
 			})
 		}
 		<Box>
