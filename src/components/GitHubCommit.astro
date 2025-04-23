@@ -1,0 +1,22 @@
+---
+interface Props {
+  user: string;
+  repo: string;
+}
+
+const { user, repo } = Astro.props;
+
+const commit = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=1`)
+    .then((res) => res.json())
+    .then((res) => res[0])
+
+console.log(commit);
+---
+
+<div class="is-size-7">
+        Updated by <a href={commit.author.url}>{commit.author.login}</a> on {new Date(commit.commit.author.date).toLocaleString()}.
+        <span class="is-family-monospace"><a href={commit.html_url}>#{commit.sha.substring(0, 7)}</a> "{commit.commit.message}"</span>
+</div>
+
+<script>
+</script>

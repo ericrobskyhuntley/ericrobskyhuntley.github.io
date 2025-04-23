@@ -8,6 +8,8 @@ import Name from "../components/Name.astro";
 import Description from "../components/Description.astro";
 import Role from "../components/Role.astro";
 import LinkButton from "../components/LinkButton.astro";
+import GitHubCommit from "../components/GitHubCommit.astro";
+
 import headshot from '../assets/head.jpg';
 
 const links = [
@@ -58,6 +60,8 @@ const roles_sort = roles.sort((a,b) => (a.data.order > b.data.order ? 1 : (b.dat
 				})
 			}
 			</div>
+			<hr>
+			<GitHubCommit user="ericrobskyhuntley" repo="ericrobskyhuntley.github.io"/>
 		</Box>
 		{
 			roles_sort.map((role) => {
