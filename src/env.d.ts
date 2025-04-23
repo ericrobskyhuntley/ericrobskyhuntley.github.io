@@ -19,4 +19,5 @@ declare interface Role {
   links: Link[];
   email: string;
   order: number;
+  published: boolean;
 }[]

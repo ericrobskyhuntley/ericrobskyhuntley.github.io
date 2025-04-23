@@ -12,7 +12,8 @@ const roles = defineCollection({
             icon: z.string()
         })
     ),
-    order: z.number()
+    order: z.number(),
+    published: z.boolean()
   })
 });
 

@@ -16,10 +16,9 @@ const config: Config = _config;
 
 import headshot from "../assets/avatar.jpg";
 
-const roles = await getCollection("roles");
+const all_roles = await getCollection("roles");
 
-const roles_sort = roles.sort((a,b) => a.data.order - b.data.order);
-console.log(roles_sort)
+const pub_roles = all_roles.sort((a,b) => a.data.order - b.data.order).filter((d) => d.data.published);
 ---
 
 <!DOCTYPE html>
@@ -53,7 +52,7 @@ console.log(roles_sort)
 			<GitHubCommit user=`${config.pages.user}` repo=`${config.pages.repo}`/>
 		</Box>
 		{
-			roles_sort.map((role) => {
+			pub_roles.map((role) => {
 				return <Role {role} />;
 			})
 		}
