@@ -18,7 +18,8 @@ import headshot from "../assets/avatar.jpg";
 
 const roles = await getCollection("roles");
 
-const roles_sort = roles.sort((a,b) => (a.data.order > b.data.order ? 1 : (b.data.order < a.data.order) ? -1 : 0));
+const roles_sort = roles.sort((a,b) => a.data.order - b.data.order);
+console.log(roles_sort)
 ---
 
 <!DOCTYPE html>
@@ -48,6 +49,8 @@ const roles_sort = roles.sort((a,b) => (a.data.order > b.data.order ? 1 : (b.dat
 				})
 			}
 			</div>
+			<Hr/>
+			<GitHubCommit user=`${config.pages.user}` repo=`${config.pages.repo}`/>
 		</Box>
 		{
 			roles_sort.map((role) => {
@@ -58,8 +61,6 @@ const roles_sort = roles.sort((a,b) => (a.data.order > b.data.order ? 1 : (b.dat
 			Built using <a href="https://astro.build/">Astro</a>. 
 			Source code available on <a href=`https://github.com/${config.pages.user}/${config.pages.repo}`>GitHub</a> 
 			under an <a href="https://en.wikipedia.org/wiki/MIT_License">MIT license</a>.
-			<Hr/>
-			<GitHubCommit user=`${config.pages.user}` repo=`${config.pages.repo}`/>
 		</Box>
     </div>
   </section>
