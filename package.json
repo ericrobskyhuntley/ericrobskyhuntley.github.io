@@ -17,7 +17,7 @@
     "astro": "^5.7.4",
     "astro-icon": "^1.1.5",
     "bulma": "^1.0.4",
-    "sass": "^1.87.0"
+    "sass": "^1.89.0"
   },
   "devDependencies": {
     "@iconify-json/academicons": "^1.2.2",
