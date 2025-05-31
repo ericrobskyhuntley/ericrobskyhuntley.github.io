@@ -14,7 +14,7 @@ const { link } = Astro.props;
     <span>{link.desc}</span>
 </a>
 
-<style>
+<style lang="scss">
     .button {
         border-radius: 0;
         border-top-style: dashed;
@@ -29,7 +29,7 @@ const { link } = Astro.props;
     @media (prefers-color-scheme: dark) {
         .button {
             background-color: var(--bulma-link-dark);
-            color:white;
+            color:white !important;
         }
         .button:hover {
             border-style: solid;
