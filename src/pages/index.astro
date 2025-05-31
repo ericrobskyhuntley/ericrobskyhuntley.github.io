@@ -1,5 +1,4 @@
 ---
-import '../styles/styles.css'
 import { getCollection } from "astro:content";
 import { Image } from 'astro:assets';
 
@@ -10,6 +9,8 @@ import Description from "../components/Description.astro";
 import Block from "../components/Block.astro";
 import LinkButton from "../components/LinkButton.astro";
 import GitHubCommit from "../components/GitHubCommit.astro";
+
+import '../styles.scss'
 
 import _config from "../config.json";
 const config: Config = _config;
