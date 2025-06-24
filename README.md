@@ -1,7 +1,7 @@
 # ericrobskyhuntley.github.io
 
 <!-- badges: start -->
-[![Deploy to GitHub Pages](https://github.com/ericrobskyhuntley/ericrobskyhuntley.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/ericrobskyhuntley/ericrobskyhuntley.github.io/actions/workflows/deploy.yml)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)[![Deploy to GitHub Pages](https://github.com/ericrobskyhuntley/ericrobskyhuntley.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/ericrobskyhuntley/ericrobskyhuntley.github.io/actions/workflows/deploy.yml)
 <!-- badges: end -->
 
 Essentially a slightly-more-involved LinkTree alternative. [Built with Astro](https://astro.build/). Here's how you can make it your own, assuming you're using Github pages.
