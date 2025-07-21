@@ -11,16 +11,6 @@
             "desc": "ericrobskyhuntley@proton.me",
             "link": "mailto:ericrobskyhuntley@proton.me",
             "icon": "mdi:email"
-        },
-        {
-            "desc": "0000-0001-8497-0589",
-            "link": "https://orcid.org/0000-0001-8497-0589",
-            "icon": "academicons:orcid"
-        },
-        {
-            "desc": "@ericdomaps",
-            "link": "https://mapstodon.space/@ericdomaps",
-            "icon": "fa6-brands:mastodon"
         }
     ],
     "avatar": "avatar.jpg",
