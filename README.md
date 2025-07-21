@@ -16,7 +16,7 @@ The remainder of site data is populated from `src/config.json`. This should be r
 
 ## Astro Config
 
-Finally, you should modify your `astro.config.mjs` file as follows...
+Finally, you should modify your `astro.config.mts` file as follows...
 
 ```js
 export default defineConfig({
