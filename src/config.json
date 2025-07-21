@@ -11,6 +11,11 @@
             "desc": "ericrobskyhuntley@proton.me",
             "link": "mailto:ericrobskyhuntley@proton.me",
             "icon": "mdi:email"
+        },
+        {
+            "desc": "AFT-AAUP Local 6741",
+            "link": "https://local6741.org/",
+            "icon": "fa6-solid:hand-fist"
         }
     ],
     "avatar": "avatar.jpg",
