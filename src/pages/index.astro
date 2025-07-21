@@ -55,7 +55,7 @@ const published = all.sort((a,b) => a.data.order - b.data.order).filter((d) => d
 		<Box>
 			<div class="has-text-centered block">
 				<figure class="image is-128x128  is-inline-block">
-					<Image alt="Headshot of { name }." class="is-rounded" src={headshot} />
+					<Image alt=`Headshot of ${ config.name }.` class="is-rounded" src={headshot} />
 				</figure>
 			</div>
 			<Name name={config.name} />
