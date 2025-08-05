@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@iconify-json/academicons": "^1.2.2",
     "@iconify-json/fa6-brands": "^1.2.5",
