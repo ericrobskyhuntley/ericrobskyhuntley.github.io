@@ -17,6 +17,11 @@ links: [
 				icon: "mdi:web"
 			},
 			{
+				desc: "Data + Feminism Lab",
+				link: "https://dataplusfeminism.mit.edu",
+				icon: "mdi:web"
+			},
+			{
 				desc: "DUSP Profile",
 				link: "https://dusp.mit.edu/people/eric-robsky-huntley/",
 				icon: "mdi:web"
@@ -28,4 +33,4 @@ published: TRUE
 
 import Tag from "../components/Tag.astro"
 
-I am a <Tag>Lecturer in Urban Science and Planning</Tag> in <Tag>MIT's Department of Urban Studies and Planning</Tag>. I teach Geographic Information Systems (GIS), spatial data science, and geocomputation. I also lead the <Tag>Spatial Analysis and Action Research Group (SAARG)</Tag> and serve as <Tag>Lead Systems Engineer</Tag> for Catherine D'Ignazio's <Tag>Data + Feminism Lab</Tag>.
+I am a <Tag url={frontmatter.links[3].link}>Lecturer in Urban Science and Planning</Tag> in the <Tag url="https://dusp.mit.edu">Department of Urban Studies and Planning</Tag> at <Tag url="https://mit.edu">MIT</Tag>. I teach Geographic Information Systems (GIS), spatial data science, and geocomputation. I also lead the <Tag url={frontmatter.links[2].link}>Spatial Analysis and Action Research Group (SAARG)</Tag> and serve as <Tag url={frontmatter.links[3].link}>Lead Systems Engineer for the Data + Feminism Lab</Tag>, led by Catherine D'Ignazio.
