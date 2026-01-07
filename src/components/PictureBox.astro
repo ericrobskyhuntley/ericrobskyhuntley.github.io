@@ -1,0 +1,56 @@
+---
+import { Picture } from "astro:assets";
+
+interface Props {
+  file: string;
+  alt: string;
+}
+
+const {file, alt} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>("../assets/*.(png|jpg|jpeg)", { eager: true });
+const img = images[`../assets/${file}`]?.default || null;
+---
+<figure class="image is-128x128 is-inline-block">
+    <div class="colorize-wrapper">
+    {img ? (
+        <Picture
+            {alt}
+            formats={["avif", "webp"]}
+            src={img}
+            loading="lazy"
+            width={256}
+            height={256}
+            
+        />
+    ) : (
+        <span>Image not found</span> // Fallback UI for missing image
+    )}
+    </div>
+</figure>
+
+<style>
+    .colorize-wrapper {
+        position: relative;
+        /* Define the desired tint color on the wrapper's background */
+        background-color: var(--bulma-link); /* Orange tint */
+    }
+    .colorize-wrapper img {
+        filter: grayscale(100%);
+        mix-blend-mode:screen;
+        border-top-style: dashed;
+        border-left-style: dashed;
+        border-bottom-style: solid;
+        border-right-style: solid;
+        border-width: 2px;
+        border-color: var(--bulma-link);
+    }
+    @media (prefers-color-scheme: dark) {
+        .colorize-wrapper {
+            background-color: var(--bulma-link);
+        }
+        .colorize-wrapper img {
+            mix-blend-mode:luminosity;
+        }
+    }
+</style>

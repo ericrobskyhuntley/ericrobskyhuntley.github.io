@@ -11,7 +11,8 @@ declare interface Config {
   pages: {
     user: string;
     repo: string;
-  }
+  },
+  avatar: string;
 }
 
 declare interface Role {
