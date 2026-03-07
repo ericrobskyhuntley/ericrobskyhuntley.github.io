@@ -10,6 +10,7 @@ import Description from "../components/Description.astro";
 import Block from "../components/Block.astro";
 import LinkButton from "../components/LinkButton.astro";
 import GitHubCommit from "../components/GitHubCommit.astro";
+import AwayMessage from "../components/AwayMessage.astro";
 
 import '@fontsource-variable/inter';
 import "../styles.scss";
@@ -85,15 +86,22 @@ const published = all
 							/>
 					</div>
 					<Name name={config.name} />
+					{ config.awayMessage && (
+						<AwayMessage>
+							{config.awayMessage}
+						</AwayMessage>
+					)}
 					<Description>
 						{config.desc}
 					</Description>
-					<div class="buttons">
-						{
-							config.links.map((link) => {
-								return <LinkButton {link} />;
-							})
-						}
+					<div class="block">
+						<div class="buttons">
+							{
+								config.links.map((link) => {
+									return <LinkButton {link} />;
+								})
+							}
+						</div>
 					</div>
 					<Hr />
 					<GitHubCommit

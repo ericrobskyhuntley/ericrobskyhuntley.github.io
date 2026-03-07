@@ -7,6 +7,7 @@ declare interface Link {
 declare interface Config {
   name: string;
   desc: string;
+  awayMessage?:  string;
   links: Link[];
   pages: {
     user: string;
