@@ -8,20 +8,19 @@ interface Props {
 
 const { file, alt } = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-    "../assets/*.(png|jpg|jpeg)"
-);
-const img = images[`../assets/${file}`]() || null;
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/*.(png|jpg|jpeg)');
+const imagePath = `../assets/${file}`; 
+if (!images[imagePath]) throw new Error(`Image not found: ${file}`);
 ---
 
 <figure class="image is-128x128 is-inline-block">
     <div class="colorize-wrapper">
         {
-            img ? (
+            await images[imagePath]() ? (
                 <Picture
                     {alt}
                     formats={["avif", "webp"]}
-                    src={img}
+                    src={images[imagePath]()}
                     loading="lazy"
                     width={256}
                     height={256}
