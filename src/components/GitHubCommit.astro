@@ -17,5 +17,5 @@ const tz = {timeZone: "America/New_York"};
 
 <div class="is-size-7">
         Updated by <a href={commit.author.html_url}>{commit.author.login}</a> on {dt.toLocaleDateString(locale, tz)} at {dt.toLocaleTimeString(locale, tz)}.
-        <span class="is-family-monospace"><a href={commit.html_url}>#{commit.sha.substring(0, 7)}</a> "{commit.commit.message}"</span>
+        <span class="is-family-monospace"><a href={commit.html_url}>#{commit.sha.substring(0, 7)}</a> "{commit.commit.message.split('\n')[0]}"</span>
 </div>
