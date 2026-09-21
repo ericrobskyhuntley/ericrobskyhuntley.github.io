@@ -20,7 +20,7 @@
     "astro-icon": "^1.2.0",
     "astro-seo": "^1.2.0",
     "bulma": "^1.0.4",
-    "sass": "^1.104.0"
+    "sass": "^1.104.1"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,
